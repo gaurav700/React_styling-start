@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styled from "styled-components";
 import "./AuthInputs.css";
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -20,8 +21,20 @@ export default function AuthInputs() {
   const emailNotValid = submitted && !enteredEmail.includes("@");
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
+  // styled components
+  const AuthInputsCss = styled.div`
+    width: 100%;
+    max-width: 28rem;
+    padding: 2rem;
+    margin: 0 auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    background: linear-gradient(180deg, #474232 0%, #28271c 100%);
+    color: white;
+  `;
+
   return (
-    <div id="auth-inputs">
+    <AuthInputsCss>
       <div className="controls">
         <p>
           <label>Email</label>
@@ -50,6 +63,6 @@ export default function AuthInputs() {
           Sign In
         </button>
       </div>
-    </div>
+    </AuthInputsCss>
   );
 }
